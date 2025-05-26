@@ -7,11 +7,18 @@ const dokumentasiData = [
   { src: "/assets/img/dokumentasi/2024-2025/batch1/2.JPG", batch: 1 },
   { src: "/assets/img/dokumentasi/2024-2025/batch1/3.JPG", batch: 1 },
   { src: "/assets/img/dokumentasi/2024-2025/batch1/4.JPG", batch: 1 },
+
   { src: "/assets/img/dokumentasi/2024-2025/batch2/1.JPG", batch: 2 },
   { src: "/assets/img/dokumentasi/2024-2025/batch2/2.JPG", batch: 2 },
   { src: "/assets/img/dokumentasi/2024-2025/batch2/3.JPG", batch: 2 },
   { src: "/assets/img/dokumentasi/2024-2025/batch2/4.JPG", batch: 2 },
   { src: "/assets/img/dokumentasi/2024-2025/batch2/5.JPG", batch: 2 },
+  
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/1.JPG", batch: 3 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/2.JPG", batch: 3 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/3.JPG", batch: 3 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/4.JPG", batch: 3 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/5.JPG", batch: 3 },
 ];
 
 export default function Dokumentasi() {

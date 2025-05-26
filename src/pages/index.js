@@ -96,7 +96,7 @@ export default function Home() {
                 <Link href="#" passHref>
                   <a title="Landing Page">
                     <Image
-                      src="/assets/img/coc 2023-2024/coc1.png"
+                      src="/assets/img/coc 2024-2025/Webinar2025Promt.jpeg"
                       width={500}
                       height={300}
                       className="card-img"
@@ -107,12 +107,12 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="col-md-6 mb-5 mb-lg-0">
+            <div className="col-md-6 mb-5 mb-md-5">
               <div className="card card-lift--hover shadow border-0">
                 <Link href="#" passHref>
                   <a title="Profile Page">
                     <Image
-                      src="/assets/img/coc 2023-2024/seminar1.png"
+                      src="/assets/img/coc 2024-2025/Webinar2025.jpg"
                       width={500}
                       height={300}
                       className="card-img"
@@ -123,12 +123,60 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="col-md-6 mb-5 mb-lg-0">
+            <div className="col-md-6 mb-5 mb-md-5">
               <div className="card card-lift--hover shadow border-0">
                 <Link href="#" passHref>
                   <a title="Profile Page">
                     <Image
-                      src="/assets/img/coc 2023-2024/coc2.png"
+                      src="/assets/img/coc 2024-2025/Coc3.jpg"
+                      width={500}
+                      height={300}
+                      className="card-img"
+                      alt="COC 2023-2024 Seminar 1"
+                      layout="responsive"
+                    />
+                  </a>
+                </Link>
+              </div>
+            </div>
+            <div className="col-md-6 mb-5 mb-md-5">
+              <div className="card card-lift--hover shadow border-0">
+                <Link href="#" passHref>
+                  <a title="Profile Page">
+                    <Image
+                      src="/assets/img/coc 2024-2025/Coc2.jpg"
+                      width={500}
+                      height={300}
+                      className="card-img"
+                      alt="COC 2023-2024 Seminar 1"
+                      layout="responsive"
+                    />
+                  </a>
+                </Link>
+              </div>
+            </div>
+            <div className="col-md-6 mb-5 mb-md-5">
+              <div className="card card-lift--hover shadow border-0">
+                <Link href="#" passHref>
+                  <a title="Profile Page">
+                    <Image
+                      src="/assets/img/coc 2024-2025/Coc1.jpg"
+                      width={500}
+                      height={300}
+                      className="card-img"
+                      alt="COC 2023-2024 Seminar 1"
+                      layout="responsive"
+                    />
+                  </a>
+                </Link>
+              </div>
+            </div>
+            <div className="col-md-6 mb-5 mb-md-5">
+              <div className="card card-lift--hover shadow border-0">
+                <Link href="#" passHref>
+                  <a title="Profile Page">
+                    <Image
+                      src="/assets/img/coc 2023-2024/coc4.jpg"
                       width={500}
                       height={300}
                       className="card-img"
@@ -139,7 +187,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="col-md-6 mb-5 mb-lg-0">
+            <div className="col-md-6 mb-5 mb-md-5">
               <div className="card card-lift--hover shadow border-0">
                 <Link href="#" passHref>
                   <a title="Profile Page">
@@ -155,12 +203,12 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="col-md-6 mt-5 mb-lg-0">
+            <div className="col-md-6 mb-5 mb-md-5">
               <div className="card card-lift--hover shadow border-0">
                 <Link href="#" passHref>
                   <a title="Profile Page">
                     <Image
-                      src="/assets/img/coc 2023-2024/coc4.jpg"
+                      src="/assets/img/coc 2023-2024/coc2.png"
                       width={500}
                       height={300}
                       className="card-img"
@@ -171,12 +219,12 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="col-md-6 mt-5 mb-lg-0">
+            <div className="col-md-6 mb-5 mb-md-5">
               <div className="card card-lift--hover shadow border-0">
                 <Link href="#" passHref>
                   <a title="Profile Page">
                     <Image
-                      src="/assets/img/coc 2024-2025/Coc1.jpg"
+                      src="/assets/img/coc 2023-2024/seminar1.png"
                       width={500}
                       height={300}
                       className="card-img"
@@ -187,12 +235,12 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            <div className="col-md-6 mt-5 mb-lg-0">
+            <div className="col-md-6 mb-5 mb-md-5">
               <div className="card card-lift--hover shadow border-0">
                 <Link href="#" passHref>
                   <a title="Profile Page">
                     <Image
-                      src="/assets/img/coc 2024-2025/Coc2.jpg"
+                      src="/assets/img/coc 2023-2024/coc1.png"
                       width={500}
                       height={300}
                       className="card-img"

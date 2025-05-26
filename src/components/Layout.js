@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script"; // Import Script component from next/script
+import Script from "next/script";
 
 export default function Layout({ children }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,23 +47,21 @@ export default function Layout({ children }) {
         className="navbar navbar-main navbar-expand-lg bg-white navbar-light position-sticky top-0 shadow py-2"
       >
         <div className="container">
-          <Link href="/" passHref>
-            <a className="navbar-brand mr-lg-5">
-              <Image
-                src="/assets/img/logococonut.png"
-                width={112}
-                height={28}
-                alt="Logo COCONUT"
-                priority
-              />
-            </a>
+          <Link href="/" className="navbar-brand mr-lg-5">
+            <Image
+              src="/assets/img/logococonut.png"
+              width={112}
+              height={28}
+              alt="Logo COCONUT"
+              priority
+            />
           </Link>
 
           <button
             className="navbar-toggler"
             type="button"
             aria-controls="navbar_global"
-            aria-expanded="false"
+            aria-expanded={isOpen}
             aria-label="Toggle navigation"
             onClick={toggleMenu}
           >
@@ -82,62 +80,57 @@ export default function Layout({ children }) {
             <div className="navbar-collapse-header">
               <div className="row">
                 <div className="col-6 collapse-brand">
-                  <Link href="/" passHref>
-                    <div class="col-6 collapse-brand">
-                      <Image
-                        src="/assets/img/logo.png"
-                        width={112}
-                        height={28}
-                        alt="Logo COCONUT"
-                        priority
-                      />
-                    </div>
+                  <Link href="/">
+                    <Image
+                      src="/assets/img/logococonut.png"
+                      width={112}
+                      height={28}
+                      alt="Logo COCONUT"
+                      priority
+                    />
                   </Link>
                 </div>
               </div>
             </div>
-            <ul className="navbar-nav navbar-nav align-items-lg-center ml-lg-auto">
-              <li class="nav-item">
-                <Link href="/https://www.facebook.com/coconutcomputer" passHref>
-                  <a
-                    class="nav-link nav-link-icon"
-                    data-toggle="tooltip"
-                    title="Like us on Facebook"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <a class="fa fa-facebook text-dark" href="https://www.facebook.com"></a>
-                    <span class="nav-link-inner--text d-lg-none">Facebook</span>
-                  </a>
-                </Link>
+            <ul className="navbar-nav align-items-lg-center ml-lg-auto">
+              <li className="nav-item">
+                <a
+                  href="https://www.facebook.com/coconutcomputer"
+                  className="nav-link nav-link-icon text-dark"
+                  data-toggle="tooltip"
+                  title="Like us on Facebook"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-facebook" />
+                  <span className="nav-link-inner--text d-lg-none">Facebook</span>
+                </a>
               </li>
               <li className="nav-item">
-                <Link href="https://www.instagram.com/coconutdotorg" passHref>
-                  <a
-                    className="nav-link nav-link-icon"
-                    data-toggle="tooltip"
-                    title="Follow us on Instagram"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <a class="fa fa-instagram text-dark" href="https://www.instagram.com"></a>
-                    <span class="nav-link-inner--text d-lg-none">Instagram</span>
-                  </a>
-                </Link>
+                <a
+                  href="https://www.instagram.com/coconutdotorg"
+                  className="nav-link nav-link-icon text-dark"
+                  data-toggle="tooltip"
+                  title="Follow us on Instagram"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-instagram" />
+                  <span className="nav-link-inner--text d-lg-none">Instagram</span>
+                </a>
               </li>
               <li className="nav-item">
-                <Link href="https://youtube.com/@coconutcomputerclub3982" passHref>
-                  <a
-                    className="nav-link nav-link-icon"
-                    data-toggle="tooltip"
-                    title="Click us on youtube"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <a class="fa fa-youtube text-dark" href="https://www.youtube.com"></a>
-                    <span class="nav-link-inner--text d-lg-none">youtube</span>
-                  </a>
-                </Link>
+                <a
+                  href="https://youtube.com/@coconutcomputerclub3982"
+                  className="nav-link nav-link-icon text-dark"
+                  data-toggle="tooltip"
+                  title="Follow us on YouTube"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <i className="fa fa-youtube" />
+                  <span className="nav-link-inner--text d-lg-none">YouTube</span>
+                </a>
               </li>
             </ul>
           </div>
@@ -167,74 +160,80 @@ export default function Layout({ children }) {
                 </h5>
               </div>
               <div className="col-lg-6 text-lg-center btn-wrapper">
-                <Link href="https://youtube.com/@coconutcomputerclub3982" passHref className="mr-2">
-                  <button
-                    rel="nofollow"
-                    className="btn btn-icon-only btn-youtube rounded-circle"
-                    data-toggle="tooltip"
-                    data-original-title="Subscribe us"
-                  >
-                    <a target="_blank" rel="noopener noreferrer">
-                      <span className="btn-inner--icon">
-                        <i className="fa fa-youtube" style={{ color: "white" }} />
-                      </span>
-                    </a>
-                  </button>
-                </Link>
-                <Link href="https://www.facebook.com/coconutcomputer" passHref className="mr-2">
-                  <button
-                    rel="nofollow"
-                    className="btn-icon-only rounded-circle btn btn-facebook"
-                    data-toggle="tooltip"
-                    data-original-title="Like us"
-                  >
-                    <a target="_blank" rel="noopener noreferrer">
-                      <span className="btn-inner--icon">
-                        <i className="fa fa-facebook" style={{ color: "white" }} />
-                      </span>
-                    </a>
-                  </button>
-                </Link>
-                <Link href="https://coconut.or.id" passHref>
-                  <button
-                    rel="nofollow"
-                    className="btn btn-icon-only btn-dribbble rounded-circle"
-                    data-toggle="tooltip"
-                    data-original-title="Follow us"
-                  >
-                    <a target="_blank" rel="noopener noreferrer">
-                      <span className="btn-inner--icon">
-                        <i className="fa fa-chrome" style={{ color: "white" }} />
-                      </span>
-                    </a>
-                  </button>
-                </Link>
+                <a
+                  href="https://youtube.com/@coconutcomputerclub3982"
+                  className="btn btn-icon-only btn-youtube rounded-circle mr-2"
+                  data-toggle="tooltip"
+                  data-original-title="Subscribe us"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                >
+                  <span className="btn-inner--icon">
+                    <i className="fa fa-youtube" style={{ color: "white" }} />
+                  </span>
+                </a>
+                <a
+                  href="https://www.facebook.com/coconutcomputer"
+                  className="btn btn-icon-only btn-facebook rounded-circle mr-2"
+                  data-toggle="tooltip"
+                  data-original-title="Like us"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                >
+                  <span className="btn-inner--icon">
+                    <i className="fa fa-facebook" style={{ color: "white" }} />
+                  </span>
+                </a>
+                <a
+                  href="https://coconut.or.id"
+                  className="btn btn-icon-only btn-dribbble rounded-circle"
+                  data-toggle="tooltip"
+                  data-original-title="Follow us"
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                >
+                  <span className="btn-inner--icon">
+                    <i className="fa fa-chrome" style={{ color: "white" }} />
+                  </span>
+                </a>
               </div>
             </div>
             <hr />
             <div className="row align-items-center justify-content-md-between">
               <div className="col-md-6">
                 <div className="copyright">
-                  © 2024 <Link href="https://coconut.or.id" passHref>
-                    <a target="_blank" rel="noopener noreferrer">COCONUT Computer Club</a>
-                  </Link>.
+                  © 2025{" "}
+                  <a
+                    href="https://coconut.or.id"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    COCONUT Computer Club
+                  </a>
+                  .
                 </div>
               </div>
               <div className="col-md-6">
                 <ul className="nav nav-footer justify-content-end">
                   <li className="nav-item">
-                    <Link href="https://coconut.or.id" passHref>
-                      <a className="nav-link" target="_blank" rel="noopener noreferrer">
-                        About Us
-                      </a>
-                    </Link>
+                    <a
+                      href="https://coconut.or.id"
+                      className="nav-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      About Us
+                    </a>
                   </li>
                   <li className="nav-item">
-                    <Link href="https://coconut.or.id/blog" passHref>
-                      <a className="nav-link" target="_blank" rel="noopener noreferrer">
-                        Blog
-                      </a>
-                    </Link>
+                    <a
+                      href="https://coconut.or.id/blog"
+                      className="nav-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Blog
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -244,50 +243,17 @@ export default function Layout({ children }) {
       </footer>
 
       {/* JavaScript Scripts with Next.js Script Component */}
-      <Script
-        src="/assets/js/core/jquery.min.js"
-        strategy="beforeInteractive"
-      />
-      <Script
-        src="/assets/js/core/popper.min.js"
-        strategy="beforeInteractive"
-      />
-      <Script
-        src="/assets/js/core/bootstrap.min.js"
-        strategy="beforeInteractive"
-      />
-      <Script
-        src="/assets/js/plugins/perfect-scrollbar.jquery.min.js"
-        strategy="lazyOnload"
-      />
-      <Script
-        src="/assets/js/plugins/bootstrap-switch.js"
-        strategy="lazyOnload"
-      />
-      <Script
-        src="/assets/js/plugins/nouislider.min.js"
-        strategy="lazyOnload"
-      />
-      <Script
-        src="/assets/js/plugins/moment.min.js"
-        strategy="lazyOnload"
-      />
-      <Script
-        src="/assets/js/plugins/datetimepicker.js"
-        strategy="lazyOnload"
-      />
-      <Script
-        src="/assets/js/plugins/bootstrap-datepicker.min.js"
-        strategy="lazyOnload"
-      />
-      <Script
-        src="/assets/js/argon-design-system.min.js?v=1.2.2"
-        strategy="lazyOnload"
-      />
-      <Script
-        src="/assets/js/script.js"
-        strategy="lazyOnload"
-      />
+      <Script src="/assets/js/core/jquery.min.js" strategy="beforeInteractive" />
+      <Script src="/assets/js/core/popper.min.js" strategy="beforeInteractive" />
+      <Script src="/assets/js/core/bootstrap.min.js" strategy="beforeInteractive" />
+      <Script src="/assets/js/plugins/perfect-scrollbar.jquery.min.js" strategy="lazyOnload" />
+      <Script src="/assets/js/plugins/bootstrap-switch.js" strategy="lazyOnload" />
+      <Script src="/assets/js/plugins/nouislider.min.js" strategy="lazyOnload" />
+      <Script src="/assets/js/plugins/moment.min.js" strategy="lazyOnload" />
+      <Script src="/assets/js/plugins/datetimepicker.js" strategy="lazyOnload" />
+      <Script src="/assets/js/plugins/bootstrap-datepicker.min.js" strategy="lazyOnload" />
+      <Script src="/assets/js/argon-design-system.min.js?v=1.2.2" strategy="lazyOnload" />
+      <Script src="/assets/js/script.js" strategy="lazyOnload" />
     </>
   );
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
-import Cookies from "js-cookie"; // ✅ Import js-cookie
+import Cookies from "js-cookie";
+import Image from "next/image"; // Import Image component from next/image
 
 export default function Pendaftar() {
   const [pendaftar, setPendaftar] = useState([]);
@@ -12,7 +13,7 @@ export default function Pendaftar() {
     const fetchData = async () => {
       if (typeof window === "undefined") return;
 
-      const token = Cookies.get("authToken"); // ✅ Ambil token dari cookie
+      const token = Cookies.get("authToken");
 
       if (!token) {
         window.location.href = "/login";
@@ -20,9 +21,9 @@ export default function Pendaftar() {
       }
 
       try {
-        const res = await fetch("http://localhost:9000/api/pendaftar/get", {
+        const res = await fetch("https://pendaftaran-coc-api.up.railway.app/api/pendaftar/get", {
           headers: {
-            Authorization: `Bearer ${token}`, // ✅ Kirim token via header jika diperlukan
+            Authorization: `Bearer ${token}`,
           },
         });
 
@@ -40,7 +41,7 @@ export default function Pendaftar() {
   }, []);
 
   const openModal = (filename) => {
-    setCurrentBukti(`http://localhost:9000/api/pendaftar/uploads/${filename}`);
+    setCurrentBukti(`https://pendaftaran-coc-api.up.railway.app/api/pendaftar/uploads/${filename}`);
     setShowModal(true);
   };
   const closeModal = () => {
@@ -92,7 +93,7 @@ export default function Pendaftar() {
                           Jumlah Pendaftar <b>{jumlah}</b> Orang
                         </p>
                         <a
-                          href="http://localhost:9000/api/pendaftar/database/pendaftar.db"
+                          href="https://pendaftaran-coc-api.up.railway.app/api/pendaftar/database/pendaftar.db"
                           className="btn btn-sm btn-primary"
                           download="backup-pendaftaran.db"
                         >
@@ -138,7 +139,7 @@ export default function Pendaftar() {
                       <br />
                       <button type="button" className="btn btn-outline-default">
                         <i className="ni ni-calendar-grid-58 mr-2" />
-                        <b>Jum'at, 11 Oktober 2024</b> 13:00 WITA - Selesai
+                        <b>Jumat, 11 Oktober 2024</b> 13:00 WITA - Selesai
                       </button>
                       <br />
                       <br />
@@ -191,15 +192,17 @@ export default function Pendaftar() {
                 <div className="modal-header">
                   <h5 className="modal-title">Bukti Transfer</h5>
                   <button type="button" className="close" onClick={closeModal}>
-                    <span>&times;</span>
+                    <span>×</span>
                   </button>
                 </div>
                 <div className="modal-body text-center">
-                  <img
+                  <Image
                     src={currentBukti}
                     alt="Bukti Transfer"
+                    width={400} // Matches maxHeight: 400px
+                    height={400} // Adjust based on actual image aspect ratio
                     className="img-fluid rounded"
-                    style={{ maxHeight: "400px", objectFit: "contain" }}
+                    style={{ objectFit: "contain" }}
                   />
                 </div>
                 <div className="modal-footer">

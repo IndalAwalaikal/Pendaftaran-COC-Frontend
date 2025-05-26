@@ -1,16 +1,17 @@
 import React, { useState } from "react";
 import Layout from "@/components/Layout";
+import Image from "next/image"; // Import Image component from next/image
 
 const dokumentasiData = [
-  { src: "assets/img/dokumentasi/2024-2025/batch1/1.JPG", batch: 1 },
-  { src: "assets/img/dokumentasi/2024-2025/batch1/2.JPG", batch: 1 },
-  { src: "assets/img/dokumentasi/2024-2025/batch1/3.JPG", batch: 1 },
-  { src: "assets/img/dokumentasi/2024-2025/batch1/4.JPG", batch: 1 },
-  { src: "assets/img/dokumentasi/2024-2025/batch2/1.JPG", batch: 2 },
-  { src: "assets/img/dokumentasi/2024-2025/batch2/2.JPG", batch: 2 },
-  { src: "assets/img/dokumentasi/2024-2025/batch2/3.JPG", batch: 2 },
-  { src: "assets/img/dokumentasi/2024-2025/batch2/4.JPG", batch: 2 },
-  { src: "assets/img/dokumentasi/2024-2025/batch2/5.JPG", batch: 2 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch1/1.JPG", batch: 1 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch1/2.JPG", batch: 1 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch1/3.JPG", batch: 1 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch1/4.JPG", batch: 1 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/1.JPG", batch: 2 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/2.JPG", batch: 2 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/3.JPG", batch: 2 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/4.JPG", batch: 2 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/5.JPG", batch: 2 },
 ];
 
 export default function Dokumentasi() {
@@ -54,10 +55,14 @@ export default function Dokumentasi() {
               key={index}
               className="gallery_product col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-3"
             >
-              <img
+              <Image
                 src={item.src}
-                className="img-responsive img-fluid w-100"
                 alt={`Dokumentasi batch ${item.batch}`}
+                width={500} // Adjust based on your image dimensions
+                height={300} // Adjust based on your image dimensions
+                className="img-fluid w-100"
+                layout="responsive" // Makes the image responsive
+                priority={index < 3} // Optional: prioritize loading for first few images
               />
             </div>
           ))}

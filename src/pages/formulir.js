@@ -13,7 +13,7 @@ export default function Formulir() {
   const [showFramework, setShowFramework] = useState(false);
   const [fileName, setFileName] = useState("Upload Bukti Transfer");
 
-  const endpoint = "http://localhost:9000/api/pendaftar/add";
+  const endpoint = "https://pendaftaran-coc-api.up.railway.app/api/pendaftar/add";
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -157,7 +157,7 @@ export default function Formulir() {
                       </p>
                       <button type="button" className="btn btn-outline-default">
                         <i className="ni ni-calendar-grid-58 mr-2" />{" "}
-                        <b>Jum'at, 11 Oktober 2024</b> 13:00 WITA - Selesai
+                        <b>Jumat, 11 Oktober 2024</b> 13:00 WITA - Selesai
                       </button>
                       <br />
                       <br />

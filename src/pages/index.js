@@ -132,30 +132,50 @@ export default function Home() {
         </div>
 
         {/* Gallery Section */}
-        <div className="container container-lg">
+        <div className="container container-lg mt-5 px-3 px-md-5">
           <div className="row">
             {gallery.map((item, idx) => (
-              <div key={idx} className="col-md-6 mb-5 mb-md-5">
-                <div className="card card-lift--hover shadow border-0 overflow-hidden">
-                  <div
-                    style={{
-                      width: "100%",
-                      height: "800px", // tinggi seragam untuk semua kartu
-                      position: "relative",
-                    }}
-                  >
+              <div key={idx} className="col-12 col-sm-6 mb-4">
+                {/* Card transparan + hover */}
+                <div
+                  className="card card-lift--hover border-0 overflow-hidden"
+                  style={{
+                    background: "transparent", // hilangkan background putih
+                    boxShadow: "none",
+                  }}
+                >
+                  <div className="gallery-image-wrapper">
                     <Image
                       src={item.src}
                       alt={item.alt}
-                      fill // otomatis isi container
-                      style={{ objectFit: "cover" }} // crop biar rapi
-                      sizes="(max-width: 768px) 100vw, 500px"
+                      fill
+                      style={{
+                        objectFit: "contain", // tampilkan keseluruhan gambar
+                        backgroundColor: "transparent", // pastikan tidak ada kotak putih
+                      }}
+                      sizes="(max-width: 768px) 100vw, 600px"
                     />
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Responsive styling */}
+          <style jsx>{`
+            .gallery-image-wrapper {
+              width: 100%;
+              height: 400px; /* agak besar untuk mobile */
+              position: relative;
+              overflow: hidden;
+            }
+
+            @media (min-width: 768px) {
+              .gallery-image-wrapper {
+                height: 550px; /* sedang untuk desktop */
+              }
+            }
+          `}</style>
         </div>
       </div>
     </Layout>

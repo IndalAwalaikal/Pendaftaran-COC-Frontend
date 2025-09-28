@@ -136,10 +136,48 @@ export default function Pendaftar() {
                         <p className="txt-biru mb-0">
                           Jumlah Pendaftar <b>{jumlah}</b> Orang
                         </p>
-                        <span className="btn btn-sm btn-primary">
+                        <button
+                          type="button"
+                          className="btn btn-sm btn-primary"
+                          onClick={async () => {
+                            try {
+                              const token = Cookies.get("authToken");
+                              if (!token) {
+                                alert("Sesi habis, silakan login ulang");
+                                window.location.href = "/login";
+                                return;
+                              }
+
+                              const res = await fetch(
+                                `${process.env.NEXT_PUBLIC_API_URL}/api/pendaftar/database/pendaftar.db`,
+                                {
+                                  headers: {
+                                    Authorization: `Bearer ${token}`,
+                                  },
+                                }
+                              );
+
+                              if (!res.ok) {
+                                alert("Gagal download backup");
+                                return;
+                              }
+
+                              const blob = await res.blob();
+                              const url = window.URL.createObjectURL(blob);
+                              const link = document.createElement("a");
+                              link.href = url;
+                              link.download = "pendaftar.db";
+                              link.click();
+                              window.URL.revokeObjectURL(url);
+                            } catch (err) {
+                              console.error(err);
+                              alert("Terjadi kesalahan saat download");
+                            }
+                          }}
+                        >
                           <i className="ni ni-cloud-download-95 me-2" />{" "}
                           Download Backup
-                        </span>
+                        </button>
                       </div>
 
                       <table

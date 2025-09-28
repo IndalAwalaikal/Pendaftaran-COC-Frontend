@@ -237,7 +237,7 @@ export default function Pendaftar() {
                       <br />
                       <br />
                       <span>
-                        Informasi lebih lanjut hubungi <b>Nurhasana</b>
+                        Informasi lebih lanjut hubungi <b>Risky Akbar</b>
                       </span>
                     </div>
                   )}

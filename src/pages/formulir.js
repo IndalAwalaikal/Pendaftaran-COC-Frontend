@@ -249,7 +249,7 @@ export default function Formulir() {
                       <br />
                       <span>
                         Informasi lebih lanjut hubungi{" "}
-                        <span className="text-success">Nurhasana</span>
+                        <span className="text-success">Risky Akbar</span>
                       </span>
                     </div>
 

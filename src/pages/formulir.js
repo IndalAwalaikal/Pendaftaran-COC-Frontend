@@ -288,12 +288,12 @@ export default function Formulir() {
                       role="tabpanel"
                       aria-labelledby="tabs-icons-text-3-tab"
                     >
-                      <p className="description">
+                      {/* <p className="description">
                         <b>Pendaftaran Gratis</b>
                         <br />
                         1. Ilmu Bermanfaat <br />
                         2. Relasi
-                      </p>
+                      </p> */}
                       <p className="description">
                         <b>Pendaftaran Gratis</b>
                         <br />

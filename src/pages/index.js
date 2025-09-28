@@ -1,25 +1,62 @@
 import Layout from "@/components/Layout";
-import Image from "next/image"; // Already imported for images
-import Link from "next/link"; // Import Link component from next/link
+import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
+  // Data untuk gallery cards
+  const gallery = [
+    {
+      src: "/assets/img/coc 2024-2025/Coc4.png",
+      alt: "COC 2024-2025 Batch 8",
+    },
+    {
+      src: "/assets/img/coc 2024-2025/Webinar2025Promt.jpeg",
+      alt: "COC 2023-2024 Event 1",
+    },
+    {
+      src: "/assets/img/coc 2024-2025/Webinar2025.jpg",
+      alt: "COC 2023-2024 Seminar 1",
+    },
+    {
+      src: "/assets/img/coc 2024-2025/Coc3.jpg",
+      alt: "COC 2023-2024 Seminar 1",
+    },
+    {
+      src: "/assets/img/coc 2024-2025/Coc2.jpg",
+      alt: "COC 2023-2024 Seminar 1",
+    },
+    {
+      src: "/assets/img/coc 2024-2025/Coc1.jpg",
+      alt: "COC 2023-2024 Seminar 1",
+    },
+    {
+      src: "/assets/img/coc 2023-2024/coc4.jpg",
+      alt: "COC 2023-2024 Event 2",
+    },
+    {
+      src: "/assets/img/coc 2023-2024/coc3.png",
+      alt: "COC 2023-2024 Event 3",
+    },
+    {
+      src: "/assets/img/coc 2023-2024/coc2.png",
+      alt: "COC 2023-2024 Event 4",
+    },
+    {
+      src: "/assets/img/coc 2023-2024/seminar1.png",
+      alt: "COC 2024-2025 Event 1",
+    },
+    {
+      src: "/assets/img/coc 2023-2024/coc1.png",
+      alt: "COC 2024-2025 Event 2",
+    },
+  ];
+
   return (
     <Layout>
-      {/* End Navbar */}
       <div className="wrapper">
+        {/* Hero Section */}
         <div className="section section-hero section-shaped">
-          <div className="shape shape-style-1 shape-primary">
-            {/* <span className="span-150"></span>
-            <span className="span-50"></span>
-            <span className="span-50"></span>
-            <span className="span-75"></span>
-            <span className="span-100"></span>
-            <span className="span-75"></span>
-            <span className="span-50"></span>
-            <span className="span-100"></span>
-            <span className="span-50"></span>
-            <span className="span-100"></span> */}
-          </div>
+          <div className="shape shape-style-1 shape-primary"></div>
           <div className="page-header">
             <div className="container shape-container d-flex align-items-center py-lg">
               <div className="col px-0">
@@ -28,35 +65,38 @@ export default function Home() {
                     <Image
                       src="/assets/img/logo.png"
                       width={120}
-                      height={120} // Adjust based on actual logo aspect ratio
+                      height={120}
                       className="img-fluid"
                       alt="Coconut Open Class Logo"
-                      priority // Prioritize loading for hero section image
+                      priority
                     />
                     <p className="display-4 text-white">
-                      COCONUT OPEN CLASS BATCH 1<br />
+                      COCONUT OPEN CLASS BATCH 8<br />
                       <br />
                       <sup>
-                        Introduction to Sveltekit: The frontend framework of the
-                        future
+                        Go REST, Go Fast: Membangun REST API dengan Golang
                       </sup>
                     </p>
                     <div className="btn-wrapper mt-2">
-                      <Link href="/dokumentasi" passHref>
-                        <a className="btn btn-lg btn-white btn-icon mb-3 mb-sm-0 mr-2 text-dark">
-                          <span className="btn-inner--icon">
-                            <i className="ni ni-image" />
-                          </span>
-                          <span className="btn-inner--text">Lihat Dokumentasi</span>
-                        </a>
+                      <Link
+                        href="/dokumentasi"
+                        className="btn btn-lg btn-white btn-icon mb-3 mb-sm-0 mr-2 text-dark"
+                      >
+                        <span className="btn-inner--icon">
+                          <i className="ni ni-image" />
+                        </span>
+                        <span className="btn-inner--text">
+                          Lihat Dokumentasi
+                        </span>
                       </Link>
-                      <Link href="/formulir" passHref>
-                        <a className="btn btn-lg btn-white btn-icon mb-3 mb-sm-0 text-dark">
-                          <span className="btn-inner--icon">
-                            <i className="ni ni-single-copy-04" />
-                          </span>
-                          <span className="btn-inner--text">Daftar Sekarang</span>
-                        </a>
+                      <Link
+                        href="/formulir"
+                        className="btn btn-lg btn-white btn-icon mb-3 mb-sm-0 text-dark"
+                      >
+                        <span className="btn-inner--icon">
+                          <i className="ni ni-single-copy-04" />
+                        </span>
+                        <span className="btn-inner--text">Daftar Sekarang</span>
                       </Link>
                     </div>
                     <div className="mt-5">
@@ -65,10 +105,10 @@ export default function Home() {
                       </small>
                       <Image
                         src="/assets/img/logococonut.png"
-                        width={112} // Calculated based on height: 28 and assuming 4:1 aspect ratio
+                        width={112}
                         height={28}
                         alt="Coconut Computer Club Logo"
-                        priority // Prioritize loading for hero section image
+                        priority
                       />
                     </div>
                   </div>
@@ -76,181 +116,45 @@ export default function Home() {
               </div>
             </div>
           </div>
+
+          {/* Wave Separator */}
           <div className="separator separator-bottom separator-skew zindex-100">
             <svg
               x={0}
               y={0}
               viewBox="0 0 2560 100"
               preserveAspectRatio="none"
-              version="1.1"
               xmlns="http://www.w3.org/2000/svg"
             >
               <polygon className="fill-white" points="2560 0 2560 100 0 100" />
             </svg>
           </div>
         </div>
+
+        {/* Gallery Section */}
         <div className="container container-lg">
           <div className="row">
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Landing Page">
+            {gallery.map((item, idx) => (
+              <div key={idx} className="col-md-6 mb-5 mb-md-5">
+                <div className="card card-lift--hover shadow border-0 overflow-hidden">
+                  <div
+                    style={{
+                      width: "100%",
+                      height: "800px", // tinggi seragam untuk semua kartu
+                      position: "relative",
+                    }}
+                  >
                     <Image
-                      src="/assets/img/coc 2024-2025/Webinar2025Promt.jpeg"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2023-2024 Event 1"
-                      layout="responsive"
+                      src={item.src}
+                      alt={item.alt}
+                      fill // otomatis isi container
+                      style={{ objectFit: "cover" }} // crop biar rapi
+                      sizes="(max-width: 768px) 100vw, 500px"
                     />
-                  </a>
-                </Link>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Profile Page">
-                    <Image
-                      src="/assets/img/coc 2024-2025/Webinar2025.jpg"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2023-2024 Seminar 1"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Profile Page">
-                    <Image
-                      src="/assets/img/coc 2024-2025/Coc3.jpg"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2023-2024 Seminar 1"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Profile Page">
-                    <Image
-                      src="/assets/img/coc 2024-2025/Coc2.jpg"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2023-2024 Seminar 1"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Profile Page">
-                    <Image
-                      src="/assets/img/coc 2024-2025/Coc1.jpg"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2023-2024 Seminar 1"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Profile Page">
-                    <Image
-                      src="/assets/img/coc 2023-2024/coc4.jpg"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2023-2024 Event 2"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Profile Page">
-                    <Image
-                      src="/assets/img/coc 2023-2024/coc3.png"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2023-2024 Event 3"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Profile Page">
-                    <Image
-                      src="/assets/img/coc 2023-2024/coc2.png"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2023-2024 Event 4"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Profile Page">
-                    <Image
-                      src="/assets/img/coc 2023-2024/seminar1.png"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2024-2025 Event 1"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
-              </div>
-            </div>
-            <div className="col-md-6 mb-5 mb-md-5">
-              <div className="card card-lift--hover shadow border-0">
-                <Link href="#" passHref>
-                  <a title="Profile Page">
-                    <Image
-                      src="/assets/img/coc 2023-2024/coc1.png"
-                      width={500}
-                      height={300}
-                      className="card-img"
-                      alt="COC 2024-2025 Event 2"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

@@ -1,39 +1,50 @@
 import React, { useEffect, useState } from "react";
 import Layout from "@/components/Layout";
 import Cookies from "js-cookie";
-import Image from "next/image"; // Import Image component from next/image
 
 export default function Pendaftar() {
   const [pendaftar, setPendaftar] = useState([]);
   const [jumlah, setJumlah] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [currentBukti, setCurrentBukti] = useState("");
+  const [activeTab, setActiveTab] = useState("pendaftar");
 
   useEffect(() => {
     const fetchData = async () => {
       if (typeof window === "undefined") return;
 
       const token = Cookies.get("authToken");
-
       if (!token) {
         window.location.href = "/login";
         return;
       }
 
       try {
-        const res = await fetch("https://pendaftaran-coc-api.up.railway.app/api/pendaftar/get", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/pendaftar/get`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
 
-        if (!res.ok) throw new Error("Gagal mengambil data");
+        if (!res.ok) {
+          if (res.status === 401) {
+            Cookies.remove("authToken");
+            window.location.href = "/login";
+          }
+          throw new Error("Gagal mengambil data");
+        }
 
         const result = await res.json();
-        setPendaftar(result.data);
-        setJumlah(result.data.length);
+        const data = Array.isArray(result.data) ? result.data : [];
+        setPendaftar(data);
+        setJumlah(data.length);
       } catch (err) {
         console.error(err);
+        setPendaftar([]); // fallback
+        setJumlah(0);
       }
     };
 
@@ -41,9 +52,11 @@ export default function Pendaftar() {
   }, []);
 
   const openModal = (filename) => {
-    setCurrentBukti(`https://pendaftaran-coc-api.up.railway.app/api/pendaftar/uploads/${filename}`);
+    const url = `${process.env.NEXT_PUBLIC_API_URL}/api/pendaftar/uploads/${filename}`;
+    setCurrentBukti(url);
     setShowModal(true);
   };
+
   const closeModal = () => {
     setShowModal(false);
     setCurrentBukti("");
@@ -58,52 +71,84 @@ export default function Pendaftar() {
             <div className="col-lg-12">
               <div className="mb-3">
                 <button type="button" className="btn btn-sm btn-success">
-                  COCONUT OPEN CLASS BATCH 1
+                  COCONUT OPEN CLASS BATCH 8
                 </button>
                 <h3 className="text-white">
                   <span className="display-4">
-                    Introduction to Sveltekit: The frontend framework of the future
+                    Go REST, Go Fast: Membangun REST API dengan Golang
                   </span>
                 </h3>
               </div>
 
               <div className="nav-wrapper">
-                <ul className="nav nav-pills nav-fill flex-column flex-md-row" role="tablist">
-                  <li className="nav-item">
-                    <a className="nav-link active" data-toggle="tab" href="#pendaftar">
+                <ul
+                  className="nav nav-pills nav-fill flex-column flex-md-row w-100"
+                  role="tablist"
+                  style={{
+                    width: "100%",
+                    border: "none",
+                    boxShadow: "none",
+                    outline: "none",
+                  }}
+                >
+                  <li className="nav-item w-50">
+                    <button
+                      className={`nav-link ${
+                        activeTab === "pendaftar" ? "active" : ""
+                      }`}
+                      onClick={() => setActiveTab("pendaftar")}
+                      style={{
+                        width: "100%",
+                        border: "none",
+                        boxShadow: "none",
+                        outline: "none",
+                      }}
+                    >
                       <i className="ni ni-align-left-2 mr-2" />
                       Informasi Pendaftar
-                    </a>
+                    </button>
                   </li>
-                  <li className="nav-item">
-                    <a className="nav-link" data-toggle="tab" href="#tatib">
+                  <li className="nav-item w-50">
+                    <button
+                      className={`nav-link ${
+                        activeTab === "tatib" ? "active" : ""
+                      }`}
+                      onClick={() => setActiveTab("tatib")}
+                      style={{
+                        width: "100%",
+                        border: "none",
+                        boxShadow: "none",
+                        outline: "none",
+                      }}
+                    >
                       <i className="ni ni-align-left-2 mr-2" />
                       Tata Tertib
-                    </a>
+                    </button>
                   </li>
                 </ul>
               </div>
 
               <div className="card shadow">
                 <div className="card-body">
-                  <div className="tab-content">
-                    <div className="tab-pane fade show active" id="pendaftar">
+                  {activeTab === "pendaftar" && (
+                    <div>
                       <div className="d-flex justify-content-between mb-3">
                         <p className="txt-biru mb-0">
                           Jumlah Pendaftar <b>{jumlah}</b> Orang
                         </p>
-                        <a
-                          href="https://pendaftaran-coc-api.up.railway.app/api/pendaftar/database/pendaftar.db"
-                          className="btn btn-sm btn-primary"
-                          download="backup-pendaftaran.db"
-                        >
-                          <i className="ni ni-cloud-download-95 me-2" /> Download Backup
-                        </a>
+                        <span className="btn btn-sm btn-primary">
+                          <i className="ni ni-cloud-download-95 me-2" />{" "}
+                          Download Backup
+                        </span>
                       </div>
 
                       <table
                         border={1}
-                        style={{ width: "100%", tableLayout: "fixed", textAlign: "center" }}
+                        style={{
+                          width: "100%",
+                          tableLayout: "fixed",
+                          textAlign: "center",
+                        }}
                       >
                         <thead>
                           <tr>
@@ -111,8 +156,9 @@ export default function Pendaftar() {
                             <th>Nama Lengkap</th>
                             <th>Email</th>
                             <th>No Telepon</th>
-                            <th>Framework</th>
-                            <th>Bukti Transfer</th>
+                            <th>Asal Perguruan Tinggi</th>
+                            {/* <th>Framework</th> */}
+                            <th>Bukti Follow</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -122,14 +168,23 @@ export default function Pendaftar() {
                               <td>{item["nama-lengkap"]}</td>
                               <td>{item.email}</td>
                               <td>{item["no-telp"]}</td>
-                              <td>{item.framework}</td>
+                              <td>{item["asal-sekolah"]}</td>
+                              {/* <td>{item.framework}</td> */}
                               <td>
-                                <button
-                                  className="btn btn-sm btn-info"
-                                  onClick={() => openModal(item["bukti-transfer"])}
-                                >
-                                  <i className="ni ni-image" />
-                                </button>
+                                <img
+                                  src={`${process.env.NEXT_PUBLIC_API_URL}/api/pendaftar/uploads/${item["bukti-follow"]}`}
+                                  alt="Bukti Follow"
+                                  style={{
+                                    width: 60,
+                                    height: 60,
+                                    objectFit: "cover",
+                                    borderRadius: 6,
+                                    cursor: "pointer",
+                                  }}
+                                  onClick={() =>
+                                    openModal(item["bukti-follow"])
+                                  }
+                                />
                               </td>
                             </tr>
                           ))}
@@ -139,34 +194,42 @@ export default function Pendaftar() {
                       <br />
                       <button type="button" className="btn btn-outline-default">
                         <i className="ni ni-calendar-grid-58 mr-2" />
-                        <b>Jumat, 11 Oktober 2024</b> 13:00 WITA - Selesai
+                        <b>Jumat, 17 Oktober 2025</b> 13:00 WITA - Selesai
                       </button>
                       <br />
                       <br />
                       <span>
-                        Informasi lebih lanjut hubungi{" "}
-                        <a href="https://api.whatsapp.com/send/?phone=62895605378736&text=assalamualaikum">
-                          Fikri Haekal
-                        </a>
+                        Informasi lebih lanjut hubungi <b>Nurhasana</b>
                       </span>
                     </div>
+                  )}
 
-                    <div className="tab-pane fade" id="tatib">
+                  {activeTab === "tatib" && (
+                    <div>
                       <h3 className="bold">TATA TERTIB KEGIATAN</h3>
                       <p className="description">
-                        <b>1. </b>Hadir 5 menit sebelum kegiatan dimulai<br />
-                        <b>2. </b>Mengisi daftar hadir<br />
-                        <b>3. </b>Mengikuti acara pembukaan<br />
-                        <b>4. </b>Pakaian sopan dan rapi<br />
-                        <b>5. </b>Dilarang membawa senjata tajam / narkoba<br />
-                        <b>6. </b>Dilarang menggunakan HP selama materi<br />
-                        <b>7. </b>Dilarang ribut<br />
-                        <b>8. </b>Wajib memperhatikan materi<br />
-                        <b>9. </b>Buang sampah pada tempatnya<br />
+                        <b>1. </b>Hadir 5 menit sebelum kegiatan dimulai
+                        <br />
+                        <b>2. </b>Mengisi daftar hadir
+                        <br />
+                        <b>3. </b>Mengikuti acara pembukaan
+                        <br />
+                        <b>4. </b>Pakaian sopan dan rapi
+                        <br />
+                        <b>5. </b>Dilarang membawa senjata tajam / narkoba
+                        <br />
+                        <b>6. </b>Dilarang menggunakan HP selama materi
+                        <br />
+                        <b>7. </b>Dilarang ribut
+                        <br />
+                        <b>8. </b>Wajib memperhatikan materi
+                        <br />
+                        <b>9. </b>Buang sampah pada tempatnya
+                        <br />
                         <b>10. </b>Ketentuan tambahan akan diinformasikan
                       </p>
                     </div>
-                  </div>
+                  )}
                 </div>
               </div>
             </div>
@@ -180,29 +243,29 @@ export default function Pendaftar() {
           </svg>
         </div>
 
-        {/* Modal Gambar */}
         {showModal && (
           <div
             className="modal fade show"
             style={{ display: "block", backgroundColor: "rgba(0,0,0,0.5)" }}
             onClick={closeModal}
           >
-            <div className="modal-dialog modal-dialog-centered" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="modal-dialog modal-dialog-centered"
+              onClick={(e) => e.stopPropagation()}
+            >
               <div className="modal-content">
                 <div className="modal-header">
-                  <h5 className="modal-title">Bukti Transfer</h5>
+                  <h5 className="modal-title">Bukti Follow</h5>
                   <button type="button" className="close" onClick={closeModal}>
                     <span>×</span>
                   </button>
                 </div>
                 <div className="modal-body text-center">
-                  <Image
+                  <img
                     src={currentBukti}
-                    alt="Bukti Transfer"
-                    width={400} // Matches maxHeight: 400px
-                    height={400} // Adjust based on actual image aspect ratio
+                    alt="Bukti Follow"
                     className="img-fluid rounded"
-                    style={{ objectFit: "contain" }}
+                    style={{ width: 400, height: 400, objectFit: "contain" }}
                   />
                 </div>
                 <div className="modal-footer">

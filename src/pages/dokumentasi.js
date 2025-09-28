@@ -3,22 +3,39 @@ import Layout from "@/components/Layout";
 import Image from "next/image"; // Import Image component from next/image
 
 const dokumentasiData = [
-  { src: "/assets/img/dokumentasi/2024-2025/batch1/1.JPG", batch: 1 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch1/2.JPG", batch: 1 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch1/3.JPG", batch: 1 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch1/4.JPG", batch: 1 },
+  { src: "/assets/img/dokumentasi/2023-2024/batch1/1.png", batch: 1 },
+  { src: "/assets/img/dokumentasi/2023-2024/batch1/2.png", batch: 1 },
+  { src: "/assets/img/dokumentasi/2023-2024/batch1/3.png", batch: 1 },
+  { src: "/assets/img/dokumentasi/2023-2024/batch1/4.png", batch: 1 },
 
-  { src: "/assets/img/dokumentasi/2024-2025/batch2/1.JPG", batch: 2 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch2/2.JPG", batch: 2 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch2/3.JPG", batch: 2 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch2/4.JPG", batch: 2 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch2/5.JPG", batch: 2 },
+  { src: "/assets/img/dokumentasi/2023-2024/batch2/1.png", batch: 2 },
+  { src: "/assets/img/dokumentasi/2023-2024/batch2/3.png", batch: 2 },
+  { src: "/assets/img/dokumentasi/2023-2024/batch2/4.png", batch: 2 },
+  { src: "/assets/img/dokumentasi/2023-2024/batch2/5.png", batch: 2 },
   
-  { src: "/assets/img/dokumentasi/2024-2025/batch3/1.JPG", batch: 3 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch3/2.JPG", batch: 3 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch3/3.JPG", batch: 3 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch3/4.JPG", batch: 3 },
-  { src: "/assets/img/dokumentasi/2024-2025/batch3/5.JPG", batch: 3 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch1/1.JPG", batch: 4 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch1/2.JPG", batch: 4 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch1/3.JPG", batch: 4 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch1/4.JPG", batch: 4 },
+
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/1.JPG", batch: 5 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/2.JPG", batch: 5 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/3.JPG", batch: 5 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/4.JPG", batch: 5 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch2/5.JPG", batch: 5 },
+
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/1.JPG", batch: 6 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/2.JPG", batch: 6 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/3.JPG", batch: 6 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/4.JPG", batch: 6 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch3/5.JPG", batch: 6 },
+
+  { src: "/assets/img/dokumentasi/2024-2025/batch4/1.JPG", batch: 7 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch4/2.JPG", batch: 7 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch4/3.JPG", batch: 7 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch4/4.JPG", batch: 7 },
+  { src: "/assets/img/dokumentasi/2024-2025/batch4/5.JPG", batch: 7 },
+  
 ];
 
 export default function Dokumentasi() {
@@ -44,7 +61,7 @@ export default function Dokumentasi() {
           </div>
 
           <div className="text-center mb-4">
-            {["all", 1, 2, 3, 4, 5].map((batch) => (
+            {["all", 1, 2, 3, 4, 5, 6, 7].map((batch) => (
               <button
                 key={batch}
                 className={`btn btn-default filter-button m-1 ${

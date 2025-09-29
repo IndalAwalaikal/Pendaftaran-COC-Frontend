@@ -62,6 +62,12 @@ export default function Pendaftar() {
     setCurrentBukti("");
   };
 
+  const openWhatsApp = () => {
+    const waLink =
+      "https://wa.me/6282232888136?text=Halo%20saya%20ingin%20bertanya%20tentang%20informasi%20acara";
+    window.open(waLink, "_blank");
+  };
+
   return (
     <Layout>
       <section className="section section-lg section-shaped">
@@ -237,7 +243,14 @@ export default function Pendaftar() {
                       <br />
                       <br />
                       <span>
-                        Informasi lebih lanjut hubungi <b>Risky Akbar</b>
+                        Informasi lebih lanjut hubungi{" "}
+                        <span
+                          className="text-success font-weight-bold"
+                          style={{ cursor: "pointer" }}
+                          onClick={openWhatsApp}
+                        >
+                          Risky Akbar
+                        </span>
                       </span>
                     </div>
                   )}

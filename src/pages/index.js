@@ -6,8 +6,12 @@ export default function Home() {
   // Data untuk gallery cards
   const gallery = [
     {
+      src: "/assets/img/coc 2025-2026/coc1.png",
+      alt: "COC 2025-2026 Batch 8",
+    },
+    {
       src: "/assets/img/coc 2024-2025/Coc4.png",
-      alt: "COC 2024-2025 Batch 8",
+      alt: "COC 2024-2025 Batch 7",
     },
     {
       src: "/assets/img/coc 2024-2025/Webinar2025Promt.jpeg",
